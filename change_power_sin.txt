@@ -1,0 +1,27 @@
+function [Power_control]=change_power(n_sample,flag,VAR,T)
+% n_sample=10;
+% T=0.5;
+% flag=2;                       % 每flag为一轮，取同样的Power值
+n=0;                            % 轮次计数
+while n<(n_sample/flag)         % 共取轮次
+    t=0.001:0.001:T;
+    Y=abs((VAR-0)*rand(1,1));
+    Power_control(1,:)=Y*sin(50*pi*t)+Y;
+    n=n+1;
+end
+
+
+% figure;
+% stem(Power_control);
+% hold on;
+% stairs(Power_control);
+
+
+% n=0;                            % 轮次计数
+% while n<(n_sample/flag)         % 共取轮次
+%     Y=abs((VAR-0)*rand(1,1));
+%     for i=1+flag*n:flag+flag*n
+%         Power_control(1,i)=Y;
+%     end
+%     n=n+1;
+% end
